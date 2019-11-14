@@ -23,15 +23,15 @@ import java.io.Serializable;
 public class Environment implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     private String type = APIConstants.GATEWAY_ENV_TYPE_HYBRID;
-    
+
     private String name;
-    
+
     private String serverURL;
-    
+
     private String userName;
-    
+
     private String password;
 
     private String apiGatewayEndpoint;
@@ -41,6 +41,8 @@ public class Environment implements Serializable {
     private String description;
 
     private boolean isDefault;
+
+    private String newField ;
 
     public boolean isDefault() {
         return isDefault;
@@ -122,6 +124,14 @@ public class Environment implements Serializable {
 
     public void setApiGatewayEndpoint(String apiGatewayEndpoint) {
         this.apiGatewayEndpoint = apiGatewayEndpoint;
+    }
+
+    public String getNewField() {
+        return newField;
+    }
+
+    public void setNewField(String newField) {
+        this.newField = newField;
     }
 
     @Override

@@ -17,7 +17,6 @@
  */
 
 package org.wso2.carbon.apimgt.rest.api.publisher.v1.impl;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import graphql.language.FieldDefinition;

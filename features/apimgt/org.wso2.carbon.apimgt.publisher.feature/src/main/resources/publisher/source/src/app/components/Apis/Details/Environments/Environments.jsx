@@ -38,6 +38,7 @@ import { isRestricted } from 'AppData/AuthManager';
 import { makeStyles } from '@material-ui/core/styles';
 import MicroGateway from 'AppComponents/Apis/Details/Environments/MicroGateway';
 
+
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
@@ -47,6 +48,7 @@ const useStyles = makeStyles(theme => ({
         marginTop: theme.spacing.unit * 3,
     },
 }));
+
 
 /**
  * Renders an Environments list
@@ -88,6 +90,12 @@ export default function Environments() {
             .finally(() => setUpdating(false));
     }
 
+    function showMassage(name){
+        Alert.info("gateway Chosen is :"+name);
+        console.log("gateways");
+        settings.environment.map(row =>(console.log(row)));
+    }
+
     return (
         <React.Fragment>
             <Typography variant='h4' gutterBottom>
@@ -101,7 +109,7 @@ export default function Environments() {
                     <TableHead>
                         <TableRow>
                             <TableCell />
-                            <TableCell>Name</TableCell>
+                            <TableCell>Name Display Allert</TableCell>
                             <TableCell align='right'>Type</TableCell>
                             <TableCell align='right'>ServerURL</TableCell>
                             {isWebsocket ? (
@@ -115,6 +123,7 @@ export default function Environments() {
                                     <TableCell align='right'>Https</TableCell>
                                 </React.Fragment>
                             )}
+                            <TableCell>Publish To Others</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -143,7 +152,6 @@ export default function Environments() {
                                 </TableCell>
                                 <TableCell align='right'>{row.type}</TableCell>
                                 <TableCell align='right'>{row.serverUrl}</TableCell>
-
                                 {isWebsocket ? (
                                     <React.Fragment>
                                         <TableCell align='right'>{row.endpoints.ws}</TableCell>
@@ -155,6 +163,16 @@ export default function Environments() {
                                         <TableCell align='right'>{row.endpoints.https}</TableCell>
                                     </React.Fragment>
                                 )}
+                                <TableCell> 
+                                <Button 
+                                        variant="contained" 
+                                        color="primary" 
+                                        className={classes.saveButton}
+                                        onClick={() => showMassage(row.name,api)}
+                                    >
+                                    Publish
+                                    </Button>
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

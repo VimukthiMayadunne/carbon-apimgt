@@ -21,6 +21,7 @@ public class EnvironmentDTO   {
     private String serverUrl = null;
     private Boolean showInApiConsole = null;
     private EnvironmentEndpointsDTO endpoints = null;
+    private String newField = null;
 
   /**
    **/
@@ -112,6 +113,23 @@ public class EnvironmentDTO   {
     this.endpoints = endpoints;
   }
 
+  /**
+   **/
+  public EnvironmentDTO newField(String newField) {
+    this.newField = newField;
+    return this;
+  }
+
+  
+  @ApiModelProperty(example = "srilanka cricket", value = "")
+  @JsonProperty("newField")
+  public String getNewField() {
+    return newField;
+  }
+  public void setNewField(String newField) {
+    this.newField = newField;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -126,12 +144,13 @@ public class EnvironmentDTO   {
         Objects.equals(type, environment.type) &&
         Objects.equals(serverUrl, environment.serverUrl) &&
         Objects.equals(showInApiConsole, environment.showInApiConsole) &&
-        Objects.equals(endpoints, environment.endpoints);
+        Objects.equals(endpoints, environment.endpoints) &&
+        Objects.equals(newField, environment.newField);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(name, type, serverUrl, showInApiConsole, endpoints);
+    return Objects.hash(name, type, serverUrl, showInApiConsole, endpoints, newField);
   }
 
   @Override
@@ -144,6 +163,7 @@ public class EnvironmentDTO   {
     sb.append("    serverUrl: ").append(toIndentedString(serverUrl)).append("\n");
     sb.append("    showInApiConsole: ").append(toIndentedString(showInApiConsole)).append("\n");
     sb.append("    endpoints: ").append(toIndentedString(endpoints)).append("\n");
+    sb.append("    newField: ").append(toIndentedString(newField)).append("\n");
     sb.append("}");
     return sb.toString();
   }

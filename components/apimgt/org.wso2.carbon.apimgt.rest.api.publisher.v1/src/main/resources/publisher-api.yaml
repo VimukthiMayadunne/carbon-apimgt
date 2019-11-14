@@ -8018,6 +8018,10 @@ definitions:
         example: true
       endpoints:
         $ref: '#/definitions/EnvironmentEndpoints'
+      newField:
+        type: string
+        example : srilanka cricket
+
 
   #-----------------------------------------------------
   # The Environment List resource

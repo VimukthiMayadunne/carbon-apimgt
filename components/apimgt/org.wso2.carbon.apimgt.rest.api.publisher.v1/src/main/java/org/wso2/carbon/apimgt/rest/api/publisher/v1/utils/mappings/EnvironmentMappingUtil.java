@@ -47,6 +47,7 @@ public class EnvironmentMappingUtil {
         environmentDTO.setType(environment.getType());
         environmentDTO.setServerUrl(environment.getServerURL());
         environmentDTO.setShowInApiConsole(environment.isShowInConsole());
+        environmentDTO.setNewField(environment.getNewField());
         String[] gatewayEndpoints = environment.getApiGatewayEndpoint().split(",");
         String[] webSocketGatewayEndpoints = environment.getWebsocketGatewayEndpoint().split(",");
         EnvironmentEndpointsDTO environmentEndpointsDTO = new EnvironmentEndpointsDTO();
